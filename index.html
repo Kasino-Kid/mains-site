@@ -514,12 +514,33 @@ async function init() {
 
 function handleOrder(e) {
   e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  const orig = btn.textContent;
-  btn.textContent = '✓ Commande envoyée !';
-  btn.style.background = '#1A1208';
+  const form = e.target;
+  const btn = form.querySelector('.btn-submit');
+  btn.textContent = '⏳ Envoi en cours...';
   btn.disabled = true;
-  setTimeout(() => { btn.textContent = orig; btn.style.background = ''; btn.disabled = false; e.target.reset(); }, 3000);
+
+  const formData = new FormData(form);
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(() => {
+    btn.textContent = '✓ Commande envoyée !';
+    btn.style.background = '#1A1208';
+    btn.style.color = '#F2EDE4';
+    form.reset();
+    setTimeout(() => {
+      btn.textContent = 'Envoyer la commande →';
+      btn.style.background = '';
+      btn.style.color = '';
+      btn.disabled = false;
+    }, 3000);
+  })
+  .catch(() => {
+    btn.textContent = '✗ Erreur, réessayez';
+    btn.disabled = false;
+  });
 }
 
 const io = new IntersectionObserver(entries => {
