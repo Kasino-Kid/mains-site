@@ -354,7 +354,8 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
     <a href="#" id="order-email-btn" class="btn btn-white" style="width:fit-content;position:relative;z-index:1">Écrire par email</a>
   </div>
   <div class="order-right">
-    <form class="order-form" onsubmit="handleOrder(event)">
+    <form class="order-form" name="commande" method="POST" data-netlify="true" onsubmit="handleOrder(event)">
+      <input type="hidden" name="form-name" value="commande"/>
       <div class="order-form-row">
         <input type="text" placeholder="Votre prénom" required/>
         <input type="tel" placeholder="Téléphone"/>
