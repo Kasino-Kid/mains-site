@@ -7,7 +7,7 @@
     "description": "Pains au levain naturel, viennoiseries et café de spécialité. Farines anciennes, ingrédients de premier choix, sans additifs."
   },
   "horaires": {
-    "semaine_label": "Lun – Sam",
+    "semaine_label": "Lundi – Samedi",
     "semaine_heures": "07–18",
     "dimanche_label": "Dimanche",
     "dimanche_heures": "07–17"
