@@ -75,3 +75,13 @@ collections:
                       - {label: "Nom", name: "nom", widget: "string"}
                       - {label: "Description", name: "desc", widget: "string"}
                       - {label: "Prix", name: "prix", widget: "string"}
+          - label: "Photos"
+            name: "photos"
+            widget: "object"
+            fields:
+              - {label: "Photo hero (devanture)", name: "hero", widget: "image"}
+              - {label: "Photo intérieur (citation)", name: "interieur", widget: "image"}
+              - label: "Carrousel"
+                name: "carousel"
+                widget: "list"
+                field: {label: "Photo", name: "photo", widget: "image"}
