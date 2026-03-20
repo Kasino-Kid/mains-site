@@ -2,7 +2,7 @@
   "hero": {
     "tagline": "Boulangerie au levain · Bruxelles",
     "titre_ligne1": "Fait à la",
-    "titre_accent": "main,",
+    "titre_accent": "mains,",
     "titre_ligne3": "avec soin.",
     "description": "Pains au levain naturel, viennoiseries et café de spécialité. Farines anciennes, ingrédients de premier choix, sans additifs."
   },
@@ -24,30 +24,78 @@
         "titre": "Viennoiseries",
         "sous_titre": "Au levain naturel",
         "items": [
-          { "nom": "Cinnamon Roll", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Croissant", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Danish", "desc": "Garniture du moment", "prix": "—" },
-          { "nom": "Babka", "desc": "Option vegan disponible", "prix": "—" }
+          {
+            "nom": "Cinnamon Roll",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Croissant",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Danish",
+            "desc": "Garniture du moment",
+            "prix": "—"
+          },
+          {
+            "nom": "Babka",
+            "desc": "Option vegan disponible",
+            "prix": "—"
+          }
         ]
       },
       {
         "titre": "Pains",
         "sous_titre": "Farines anciennes",
         "items": [
-          { "nom": "Pain blanc au levain", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Pain miso & sésame", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Pain de seigle", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Sélection du moment", "desc": "Selon arrivage", "prix": "—" }
+          {
+            "nom": "Pain blanc au levain",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Pain miso & sésame",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Pain de seigle",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Sélection du moment",
+            "desc": "Selon arrivage",
+            "prix": "—"
+          }
         ]
       },
       {
         "titre": "Café & Boissons",
         "sous_titre": "De spécialité",
         "items": [
-          { "nom": "Espresso", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Flat White", "desc": "À renseigner", "prix": "—" },
-          { "nom": "Cappuccino", "desc": "Lait d'avoine disponible", "prix": "—" },
-          { "nom": "Boisson du moment", "desc": "À renseigner", "prix": "—" }
+          {
+            "nom": "Espresso",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Flat White",
+            "desc": "À renseigner",
+            "prix": "—"
+          },
+          {
+            "nom": "Cappuccino",
+            "desc": "Lait d'avoine disponible",
+            "prix": "—"
+          },
+          {
+            "nom": "Boisson du moment",
+            "desc": "À renseigner",
+            "prix": "—"
+          }
         ]
       }
     ]
@@ -81,6 +129,14 @@
   "photos": {
     "hero": "hero.jpg",
     "interieur": "interieur.jpg",
-    "carousel": ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg"]
+    "carousel": [
+      "photo1.jpg",
+      "photo2.jpg",
+      "photo3.jpg",
+      "photo4.jpg",
+      "photo5.jpg",
+      "photo6.jpg",
+      "photo7.jpg"
+    ]
   }
 }
