@@ -2,15 +2,15 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "."
+public_folder: "."
 
 collections:
   - name: "contenu"
-    label: "Contenu du site"
+    label: "Site Mains"
     files:
-      - label: "Général"
-        name: "general"
+      - label: "Tout le contenu"
+        name: "contenu"
         file: "contenu.json"
         format: json
         fields:
@@ -21,12 +21,57 @@ collections:
               - {label: "Tagline", name: "tagline", widget: "string"}
               - {label: "Titre ligne 1", name: "titre_ligne1", widget: "string"}
               - {label: "Titre accent", name: "titre_accent", widget: "string"}
+              - {label: "Titre ligne 3", name: "titre_ligne3", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
           - label: "Horaires"
             name: "horaires"
             widget: "object"
             fields:
-              - {label: "Semaine label", name: "semaine_label", widget: "string"}
-              - {label: "Semaine heures", name: "semaine_heures", widget: "string"}
-              - {label: "Dimanche label", name: "dimanche_label", widget: "string"}
-              - {label: "Dimanche heures", name: "dimanche_heures", widget: "string"}
+              - {label: "Label semaine", name: "semaine_label", widget: "string"}
+              - {label: "Heures semaine", name: "semaine_heures", widget: "string"}
+              - {label: "Label dimanche", name: "dimanche_label", widget: "string"}
+              - {label: "Heures dimanche", name: "dimanche_heures", widget: "string"}
+          - label: "Notre histoire"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "titre", widget: "string"}
+              - {label: "Paragraphe 1", name: "texte1", widget: "text"}
+              - {label: "Paragraphe 2", name: "texte2", widget: "text"}
+              - {label: "Citation", name: "citation", widget: "text"}
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Email", name: "email", widget: "string"}
+              - {label: "Téléphone", name: "telephone", widget: "string"}
+              - {label: "Instagram", name: "instagram", widget: "string"}
+              - {label: "Facebook", name: "facebook", widget: "string"}
+          - label: "Adresses"
+            name: "adresses"
+            widget: "list"
+            fields:
+              - {label: "Ville", name: "ville", widget: "string"}
+              - {label: "Rue", name: "rue", widget: "string"}
+              - {label: "Adresse complète", name: "adresse_complete", widget: "string"}
+              - {label: "Code postal", name: "code_postal", widget: "string"}
+              - {label: "Heures semaine", name: "heures_semaine", widget: "string"}
+              - {label: "Heures dimanche", name: "heures_dimanche", widget: "string"}
+              - {label: "Type", name: "type", widget: "string"}
+          - label: "Menu"
+            name: "menu"
+            widget: "object"
+            fields:
+              - label: "Catégories"
+                name: "categories"
+                widget: "list"
+                fields:
+                  - {label: "Titre", name: "titre", widget: "string"}
+                  - {label: "Sous-titre", name: "sous_titre", widget: "string"}
+                  - label: "Produits"
+                    name: "items"
+                    widget: "list"
+                    fields:
+                      - {label: "Nom", name: "nom", widget: "string"}
+                      - {label: "Description", name: "desc", widget: "string"}
+                      - {label: "Prix", name: "prix", widget: "string"}
