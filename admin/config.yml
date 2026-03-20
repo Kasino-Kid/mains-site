@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "contenu"
+    label: "Contenu du site"
+    files:
+      - label: "Général"
+        name: "general"
+        file: "contenu.json"
+        format: json
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tagline", name: "tagline", widget: "string"}
+              - {label: "Titre ligne 1", name: "titre_ligne1", widget: "string"}
+              - {label: "Titre accent", name: "titre_accent", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          - label: "Horaires"
+            name: "horaires"
+            widget: "object"
+            fields:
+              - {label: "Semaine label", name: "semaine_label", widget: "string"}
+              - {label: "Semaine heures", name: "semaine_heures", widget: "string"}
+              - {label: "Dimanche label", name: "dimanche_label", widget: "string"}
+              - {label: "Dimanche heures", name: "dimanche_heures", widget: "string"}
