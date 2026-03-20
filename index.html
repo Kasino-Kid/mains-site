@@ -22,20 +22,13 @@
     font-style: normal;
     font-display: swap;
   }
-  @font-face {
-    font-family: 'Chewie';
-    src: url('ChewieDEMO-ExtraBold.otf') format('opentype');
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-  }
 </style>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --kraft:       #FFFFFF;        /* blanc — fond principal */
-  --kraft-orig:  #E8D5B0;        /* vrai kraft — surfaces secondaires */
+  --kraft:       #FFFFFF;
+  --kraft-orig:  #E8D5B0;
   --kraft-dark:  #D4BC8E;
   --kraft-deep:  #C4A870;
   --sienna:      #8B4513;
@@ -51,78 +44,27 @@
 }
 
 html { scroll-behavior: smooth; }
+body { background: var(--kraft); color: var(--ink); font-family: var(--body); font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+body::after { content: ''; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: 0.03; background-image: radial-gradient(circle, var(--ink) 1px, transparent 1px); background-size: 4px 4px; }
 
-body {
-  background: var(--kraft);
-  color: var(--ink);
-  font-family: var(--body);
-  font-weight: 400;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-body::after {
-  content: '';
-  position: fixed; inset: 0; z-index: 999;
-  pointer-events: none; opacity: 0.03;
-  background-image: radial-gradient(circle, var(--ink) 1px, transparent 1px);
-  background-size: 4px 4px;
-}
-
-/* ── NAV ── */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 0.9rem 2.5rem;
-  background: var(--kraft);
-  border-bottom: 2px solid var(--ink);
-}
-
-.nav-logo {
-  display: flex; align-items: center; gap: 0.75rem;
-  text-decoration: none;
-}
-
-/* Logo image — remplace le texte quand une image est fournie */
-.nav-logo-img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
-
-/* Fallback texte si pas de logo image */
-.nav-logo-text {
-  font-family: var(--display);
-  font-size: 1.7rem;
-  font-weight: 900;
-  color: var(--ink);
-  letter-spacing: -0.02em;
-  font-style: italic;
-  display: none; /* caché quand l'image est présente */
-}
-
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 0.9rem 2.5rem; background: var(--kraft); border-bottom: 2px solid var(--ink); }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.nav-logo-img { height: 38px; width: auto; display: block; }
+.nav-logo-text { font-family: var(--display); font-size: 1.7rem; font-weight: 900; color: var(--ink); letter-spacing: -0.02em; font-style: italic; display: none; }
 .nav-logo-img.hidden + .nav-logo-text { display: block; }
-
 .nav-links { display: flex; gap: 0.5rem; list-style: none; align-items: center; }
 .nav-links a { font-family: var(--body); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; padding: 0.4rem 0.9rem; border: 2px solid transparent; border-radius: 100px; transition: all 0.2s; }
 .nav-links a:hover { border-color: var(--ink); background: var(--ink); color: var(--kraft); }
 .nav-links .nav-cta { background: var(--sienna); color: var(--white); border-color: var(--sienna); }
 .nav-links .nav-cta:hover { background: var(--sienna-dark); border-color: var(--sienna-dark); color: var(--white); }
 
-/* ── HERO ── */
 .hero { min-height: 100vh; padding-top: 68px; display: grid; grid-template-columns: 1fr 1fr; }
-
 .hero-left { padding: 5rem 3.5rem 5rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 2px solid var(--ink); position: relative; }
-
 .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--ink); color: var(--kraft); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.35rem 0.9rem; border-radius: 100px; width: fit-content; margin-bottom: 2rem; }
-
 .hero-title { font-family: var(--display); font-weight: 900; font-size: clamp(3.2rem, 5.5vw, 6rem); line-height: 1.0; color: var(--ink); margin-bottom: 1.5rem; letter-spacing: -0.02em; }
 .hero-title .accent { color: var(--sienna); font-style: italic; }
-
 .hero-body { font-size: 0.95rem; color: var(--muted); max-width: 360px; line-height: 1.85; margin-bottom: 2.5rem; }
-
 .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
-
 .btn { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--body); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; cursor: pointer; padding: 0.8rem 1.6rem; border-radius: 100px; border: 2px solid; transition: all 0.2s; }
 .btn-primary { background: var(--sienna); color: var(--white); border-color: var(--sienna); }
 .btn-primary:hover { background: var(--sienna-dark); border-color: var(--sienna-dark); }
@@ -130,59 +72,40 @@ nav {
 .btn-secondary:hover { background: var(--ink); color: var(--kraft); }
 .btn-white { background: var(--white); color: var(--ink); border-color: var(--white); }
 .btn-white:hover { background: var(--kraft-orig); border-color: var(--kraft); }
-
 .hero-hours { display: flex; gap: 1.5rem; margin-top: 2.5rem; }
 .hero-hour-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: block; }
 .hero-hour-val { font-family: 'Chewie', var(--body); font-size: 1.2rem; font-weight: 700; color: var(--ink); }
-
 .hero-right { background: var(--sienna); position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 4rem 3rem; }
 .hero-right-photo, .hero-bg-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; z-index: 0; }
 .hero-right::before { content: ''; position: absolute; inset: 0; background: rgba(26,18,8,0.35); z-index: 1; }
-
 .hero-wordmark { font-family: var(--display); font-weight: 900; font-style: italic; font-size: clamp(5rem, 13vw, 14rem); color: rgba(255,255,255,0.08); line-height: 0.9; text-align: center; user-select: none; position: absolute; white-space: nowrap; z-index: 2; }
-
 .hero-card { position: absolute; bottom: 2rem; left: 2rem; right: 2rem; z-index: 3; background: rgba(232,213,176,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 2px solid var(--ink); border-radius: 16px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; }
 .hero-card-title { font-family: var(--display); font-size: 1rem; font-weight: 700; margin-bottom: 0; color: var(--ink); white-space: nowrap; }
 .hero-card-sub { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0; }
-.hero-card-divider { display: none; }
 .hero-loc-item { display: flex; align-items: center; gap: 0.5rem; padding: 0; border-bottom: none; flex: 1; }
-.hero-loc-item:last-of-type { border-bottom: none; }
-.hero-loc-dot { width: 8px; height: 8px; background: var(--sienna); border-radius: 50%; flex-shrink: 0; margin-top: 0; }
+.hero-loc-dot { width: 8px; height: 8px; background: var(--sienna); border-radius: 50%; flex-shrink: 0; }
 .hero-loc-name { font-weight: 700; font-size: 0.78rem; color: var(--ink); margin-bottom: 0; }
 .hero-loc-detail { font-size: 0.7rem; color: var(--muted); line-height: 1.4; }
 .hero-locs { display: flex; gap: 1rem; flex: 1; }
 .hero-card-info { white-space: nowrap; border-right: 1px solid var(--border); padding-right: 1.5rem; }
 
-/* ── TICKER ── */
 .ticker { background: var(--ink); color: var(--kraft); padding: 0.7rem 0; overflow: hidden; white-space: nowrap; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); }
 .ticker-inner { display: inline-flex; animation: ticker 25s linear infinite; }
 .ticker-item { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 0 2rem; }
 .ticker-dot { color: var(--sienna-light); margin: 0 0.2rem; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ── CAROUSEL ── */
 .carousel { overflow: hidden; border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); background: var(--ink); position: relative; }
-.carousel-track { display: flex; gap: 0; animation: carousel 30s linear infinite; width: max-content; }
+.carousel-track { display: flex; animation: carousel 30s linear infinite; width: max-content; }
 .carousel:hover .carousel-track { animation-play-state: paused; }
 .carousel-slide { flex-shrink: 0; width: 340px; height: 380px; overflow: hidden; border-right: 2px solid var(--ink); }
 .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
 .carousel-slide:hover img { transform: scale(1.04); }
 @keyframes carousel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* ── SECTION TAG ── */
 .section-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sienna); margin-bottom: 1.5rem; }
 .section-tag::before { content: ''; width: 20px; height: 2px; background: var(--sienna); border-radius: 1px; }
 
-/* ── SECOND HERO ── */
-.second-hero { display: grid; grid-template-columns: 3fr 2fr; border-top: 2px solid var(--ink); min-height: 70vh; }
-.second-hero-img { position: relative; overflow: hidden; border-right: 2px solid var(--ink); }
-.second-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
-.second-hero:hover .second-hero-img img { transform: scale(1.02); }
-.second-hero-text { padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; background: var(--kraft-orig); }
-.second-hero-text h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2rem, 3.5vw, 3.5rem); line-height: 1.1; color: var(--ink); margin-bottom: 1.5rem; }
-.second-hero-text p { font-size: 0.92rem; color: var(--muted); line-height: 1.9; max-width: 400px; }
-
-/* ── ABOUT ── */
 .about { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--ink); }
 .about-left { background: var(--kraft-orig); padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 2px solid var(--ink); }
 .about-left h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.2rem, 3.5vw, 3.5rem); line-height: 1.1; margin-bottom: 1.5rem; color: var(--ink); }
@@ -190,7 +113,6 @@ nav {
 .about-stats { display: flex; gap: 2.5rem; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 2px solid var(--border); }
 .stat-num { font-family: 'Chewie', var(--body); font-size: 2.8rem; font-weight: 700; color: var(--sienna); line-height: 1; margin-bottom: 0.25rem; }
 .stat-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-
 .about-right { position: relative; display: flex; align-items: center; justify-content: center; padding: 4rem 3rem; overflow: hidden; min-height: 400px; }
 .about-right-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0; }
 .about-right::before { content: ''; position: absolute; inset: 0; background: rgba(26,18,8,0.25); z-index: 1; }
@@ -199,7 +121,6 @@ nav {
 .about-quote { font-family: var(--display); font-size: 1.35rem; font-weight: 700; font-style: italic; color: var(--ink); line-height: 1.35; margin-bottom: 1rem; }
 .about-quote-attr { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
-/* ── MENU ── */
 .menu { padding: 5rem 4rem; border-top: 2px solid var(--ink); background: var(--kraft-orig); }
 .menu-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; }
 .menu-header h2 { font-family: var(--display); font-weight: 900; font-size: clamp(2.5rem, 4vw, 4rem); line-height: 1; color: var(--ink); }
@@ -215,9 +136,7 @@ nav {
 .menu-item-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
 .menu-item-desc { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
 .menu-item-price { font-family: 'Chewie', var(--body); font-size: 1rem; font-weight: 700; color: var(--sienna); white-space: nowrap; }
-.menu-placeholder { margin: 0 1.5rem 1.25rem; padding: 0.8rem; border: 1.5px dashed var(--kraft-deep); border-radius: 8px; background: rgba(232,213,176,0.3); font-size: 0.7rem; color: var(--muted); font-style: italic; text-align: center; }
 
-/* ── HOURS ── */
 .hours-window { border-top: 2px solid var(--ink); background: var(--ink); color: var(--kraft); padding: 4rem; display: flex; align-items: center; justify-content: center; gap: 6rem; }
 .hours-block { text-align: center; }
 .hours-days { font-family: var(--body); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(232,213,176,0.5); margin-bottom: 0.25rem; }
@@ -226,12 +145,11 @@ nav {
 .hours-title { font-family: var(--display); font-size: 1.8rem; font-weight: 700; font-style: italic; color: var(--sienna-light); margin-bottom: 0.4rem; line-height: 1.2; }
 .hours-sub { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(232,213,176,0.35); }
 
-/* ── LOCATIONS ── */
 .locations { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid var(--ink); }
 .loc { padding: 4.5rem 4rem; position: relative; overflow: hidden; }
 .loc:first-child { background: var(--kraft-orig); border-right: 2px solid var(--ink); }
 .loc:last-child { background: var(--kraft-orig); }
-.loc-num { position: absolute; top: 2rem; right: 2.5rem; font-family: 'Chewie', var(--body); font-size: 8rem; font-weight: 900; font-style: italic; color: rgba(26,18,8,0.05); line-height: 1; user-select: none; }
+.loc-num { position: absolute; top: 2rem; right: 2.5rem; font-family: 'Chewie', var(--body); font-size: 8rem; font-weight: 900; color: rgba(26,18,8,0.05); line-height: 1; user-select: none; }
 .loc-name { font-family: var(--display); font-weight: 900; font-size: 2rem; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.1; }
 .loc-addr { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
 .hours-table { display: grid; grid-template-columns: auto 1fr; gap: 0.4rem 1.5rem; margin-bottom: 1.75rem; }
@@ -239,7 +157,6 @@ nav {
 .hours-val { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
 .loc-chip { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.35rem 0.85rem; background: var(--sienna); color: var(--white); border-radius: 100px; }
 
-/* ── ORDER ── */
 .order { border-top: 2px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr; }
 .order-left { background: var(--sienna); color: var(--white); padding: 5rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 2px solid var(--ink); position: relative; overflow: hidden; }
 .order-left::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px); background-size: 6px 6px; }
@@ -258,7 +175,6 @@ nav {
 .btn-submit { background: var(--sienna); color: var(--white); border: 2px solid var(--sienna); padding: 0.85rem 1.8rem; font-family: var(--body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border-radius: 100px; transition: background 0.2s; }
 .btn-submit:hover { background: var(--sienna-dark); border-color: var(--sienna-dark); }
 
-/* ── CONTACT ── */
 .contact { display: grid; grid-template-columns: repeat(3,1fr); border-top: 2px solid var(--ink); background: var(--kraft-orig); }
 .contact-col { padding: 3.5rem 3rem; border-right: 2px solid var(--ink); }
 .contact-col:last-child { border-right: none; }
@@ -271,23 +187,18 @@ nav {
 .tgtg-btn { display: inline-block; margin-top: 1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white) !important; background: var(--sienna); padding: 0.45rem 1rem; border-radius: 100px; transition: background 0.2s; }
 .tgtg-btn:hover { background: var(--sienna-dark) !important; }
 
-/* ── FOOTER ── */
 footer { padding: 1.25rem 2.5rem; border-top: 2px solid var(--ink); background: var(--ink); display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 .footer-logo { height: 28px; width: auto; filter: brightness(0) invert(0.85) sepia(0.3) saturate(0.5); }
 .footer-logo-text { font-family: var(--display); font-size: 1.4rem; font-weight: 900; font-style: italic; color: var(--kraft); display: none; }
 footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); letter-spacing: 0.07em; }
 
-/* ── ANIMATIONS ── */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { opacity: 0; animation: fadeUp 0.75s cubic-bezier(0.22,1,0.36,1) forwards; }
 .d1 { animation-delay: 0.05s; } .d2 { animation-delay: 0.15s; } .d3 { animation-delay: 0.28s; } .d4 { animation-delay: 0.42s; } .d5 { animation-delay: 0.55s; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 0.8rem 1.25rem; }
-  .hero, .about, .locations, .order, .contact, .second-hero { grid-template-columns: 1fr; }
-  .second-hero-img { min-height: 60vw; border-right: none; border-bottom: 2px solid var(--ink); }
-  .second-hero-text { padding: 3rem 1.5rem; }
+  .hero, .about, .locations, .order, .contact { grid-template-columns: 1fr; }
   .hero-left { padding: 3.5rem 1.5rem 2rem; border-right: none; border-bottom: 2px solid var(--ink); }
   .hero-hours { margin-top: 2rem; }
   .hero-right { min-height: 50vw; border-top: 2px solid var(--ink); }
@@ -310,22 +221,13 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
   .order-form-row { grid-template-columns: 1fr; }
 }
 </style>
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script></head>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
 <body>
 
 <nav>
   <a href="#" class="nav-logo">
-    <!--
-      LOGO : remplace le src ci-dessous par le chemin de ton fichier logo
-      Exemple : src="logo.png" ou src="images/mains-logo.svg"
-      Le logo doit être dans le même dossier que ce fichier index.html
-    -->
-    <img
-      src="logo.png"
-      alt="mains boulangerie"
-      class="nav-logo-img"
-      onerror="this.classList.add('hidden')"
-    />
+    <img src="logo.png" alt="mains boulangerie" class="nav-logo-img" onerror="this.classList.add('hidden')"/>
     <span class="nav-logo-text">mains</span>
   </a>
   <ul class="nav-links">
@@ -335,41 +237,31 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <span class="hero-tag fade-up d1">Boulangerie au levain · Bruxelles</span>
-    <h1 class="hero-title fade-up d2">Fait à la<br/><span class="accent">main,</span><br/>avec soin.</h1>
-    <p class="hero-body fade-up d3">Pains au levain naturel, viennoiseries et café de spécialité. Farines anciennes, ingrédients de premier choix, sans additifs.</p>
+    <span class="hero-tag fade-up d1" id="hero-tagline"></span>
+    <h1 class="hero-title fade-up d2" id="hero-title"></h1>
+    <p class="hero-body fade-up d3" id="hero-desc"></p>
     <div class="hero-btns fade-up d4">
       <a href="#commande" class="btn btn-primary">Commander</a>
       <a href="#menu" class="btn btn-secondary">Voir la carte</a>
     </div>
-    <div class="hero-hours fade-up d5">
-      <div><span class="hero-hour-label">Lun – Sam</span><span class="hero-hour-val">07–18</span></div>
-      <div><span class="hero-hour-label">Dimanche</span><span class="hero-hour-val">07–17</span></div>
-    </div>
+    <div class="hero-hours fade-up d5" id="hero-hours"></div>
   </div>
   <div class="hero-right">
-    <img src="hero.jpg" alt="Mains boulangerie devanture" class="hero-bg-photo"/>
+    <img src="hero.jpg" alt="Mains boulangerie" class="hero-bg-photo"/>
     <div class="hero-card fade-up d3">
       <div class="hero-card-info">
         <p class="hero-card-title">Nos adresses</p>
         <p class="hero-card-sub">Ouvert 7j/7</p>
       </div>
-      <div class="hero-locs">
-        <div class="hero-loc-item">
-          <div class="hero-loc-dot"></div>
-          <div><div class="hero-loc-name">Etterbeek</div><div class="hero-loc-detail">61 Av. des Casernes</div></div>
-        </div>
-        <div class="hero-loc-item">
-          <div class="hero-loc-dot"></div>
-          <div><div class="hero-loc-name">Uccle</div><div class="hero-loc-detail">887 Chée de Waterloo</div></div>
-        </div>
-      </div>
+      <div class="hero-locs" id="hero-locs"></div>
     </div>
   </div>
 </section>
 
+<!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-inner">
     <span class="ticker-item">Levain naturel <span class="ticker-dot">◆</span></span>
@@ -395,31 +287,16 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
 
 <!-- CAROUSEL -->
 <div class="carousel" aria-label="Galerie photos">
-  <div class="carousel-track">
-    <div class="carousel-slide"><img src="photo1.jpg" alt="Cinnamon roll chocolat Mains"/></div>
-    <div class="carousel-slide"><img src="photo2.jpg" alt="Boulangère au travail"/></div>
-    <div class="carousel-slide"><img src="photo3.jpg" alt="Danish meringue"/></div>
-    <div class="carousel-slide"><img src="photo4.jpg" alt="Danish pomme"/></div>
-    <div class="carousel-slide"><img src="photo5.jpg" alt="Fournée de croissants"/></div>
-    <div class="carousel-slide"><img src="photo6.jpg" alt="Kouign-amann"/></div>
-    <div class="carousel-slide"><img src="photo7.jpg" alt="Viennoiserie coupée"/></div>
-    <!-- Duplication pour le défilement infini -->
-    <div class="carousel-slide"><img src="photo1.jpg" alt="Cinnamon roll chocolat Mains"/></div>
-    <div class="carousel-slide"><img src="photo2.jpg" alt="Boulangère au travail"/></div>
-    <div class="carousel-slide"><img src="photo3.jpg" alt="Danish meringue"/></div>
-    <div class="carousel-slide"><img src="photo4.jpg" alt="Danish pomme"/></div>
-    <div class="carousel-slide"><img src="photo5.jpg" alt="Fournée de croissants"/></div>
-    <div class="carousel-slide"><img src="photo6.jpg" alt="Kouign-amann"/></div>
-    <div class="carousel-slide"><img src="photo7.jpg" alt="Viennoiserie coupée"/></div>
-  </div>
+  <div class="carousel-track" id="carousel-track"></div>
 </div>
 
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-left">
     <p class="section-tag">Notre histoire</p>
-    <h2>Une boulangerie<br/>née de passion.</h2>
-    <p>Senina Cojocari, originaire de Moldavie, pose ses valises à Bruxelles en 2020. D'abord torréfactrice, elle se forme à la boulangerie en autodidacte, entre innombrables essais et voyages à Londres et en Scandinavie.</p>
-    <p>En 2022, elle ouvre Mains à Uccle — 100% levain naturel, farines sans additifs, ingrédients de premier choix. Depuis 2025, l'atelier principal est à Etterbeek.</p>
+    <h2 id="about-titre"></h2>
+    <p id="about-texte1"></p>
+    <p id="about-texte2"></p>
     <div class="about-stats">
       <div><div class="stat-num">100%</div><div class="stat-label">levain naturel</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">adresses BXL</div></div>
@@ -430,51 +307,22 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
     <img src="interieur.jpg" alt="Intérieur Mains Boulangerie" class="about-right-photo"/>
     <div class="about-quote-block">
       <span class="about-quote-mark">"</span>
-      <blockquote class="about-quote">Du pain honnête, fait avec des ingrédients vrais.</blockquote>
+      <blockquote class="about-quote" id="about-citation"></blockquote>
       <span class="about-quote-attr">— Mains Boulangerie, BXL</span>
     </div>
   </div>
 </section>
 
+<!-- MENU -->
 <section class="menu" id="menu">
   <div class="menu-header">
     <div><p class="section-tag">Nos produits</p><h2>La carte</h2></div>
-    <p class="menu-note">La carte change selon les saisons. Prix à confirmer en boutique.</p>
+    <p class="menu-note">La carte change selon les saisons.</p>
   </div>
-  <div class="menu-grid">
-    <div class="menu-col">
-      <div class="menu-col-head"><h3 class="menu-col-title">Viennoiseries</h3><p class="menu-col-sub">Au levain naturel</p></div>
-      <ul class="menu-items">
-        <li class="menu-item"><div><div class="menu-item-name">Cinnamon Roll</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Croissant</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Danish</div><div class="menu-item-desc">Garniture du moment</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Babka</div><div class="menu-item-desc">Option vegan disponible</div></div><span class="menu-item-price">— €</span></li>
-      </ul>
-      <div class="menu-placeholder">Prix à compléter ✦</div>
-    </div>
-    <div class="menu-col">
-      <div class="menu-col-head"><h3 class="menu-col-title">Pains</h3><p class="menu-col-sub">Farines anciennes</p></div>
-      <ul class="menu-items">
-        <li class="menu-item"><div><div class="menu-item-name">Pain blanc au levain</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Pain miso & sésame</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Pain de seigle</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Sélection du moment</div><div class="menu-item-desc">Selon arrivage</div></div><span class="menu-item-price">— €</span></li>
-      </ul>
-      <div class="menu-placeholder">Prix à compléter ✦</div>
-    </div>
-    <div class="menu-col">
-      <div class="menu-col-head"><h3 class="menu-col-title">Café & Boissons</h3><p class="menu-col-sub">De spécialité</p></div>
-      <ul class="menu-items">
-        <li class="menu-item"><div><div class="menu-item-name">Espresso</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Flat White</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Cappuccino</div><div class="menu-item-desc">Lait d'avoine disponible</div></div><span class="menu-item-price">— €</span></li>
-        <li class="menu-item"><div><div class="menu-item-name">Boisson du moment</div><div class="menu-item-desc">À renseigner</div></div><span class="menu-item-price">— €</span></li>
-      </ul>
-      <div class="menu-placeholder">Prix à compléter ✦</div>
-    </div>
-  </div>
+  <div class="menu-grid" id="menu-grid"></div>
 </section>
 
+<!-- HORAIRES -->
 <div class="hours-window">
   <div class="hours-block">
     <div class="hours-title">Hours to get our<br/>sourdough goods</div>
@@ -482,47 +330,28 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
   </div>
   <div class="hours-divider"></div>
   <div class="hours-block">
-    <div class="hours-days">Lundi – Samedi</div>
-    <div class="hours-time">07–18</div>
+    <div class="hours-days" id="hours-semaine-label"></div>
+    <div class="hours-time" id="hours-semaine-heures"></div>
   </div>
   <div class="hours-divider"></div>
   <div class="hours-block">
-    <div class="hours-days">Dimanche</div>
-    <div class="hours-time">07–17</div>
+    <div class="hours-days" id="hours-dimanche-label"></div>
+    <div class="hours-time" id="hours-dimanche-heures"></div>
   </div>
 </div>
 
+<!-- ADRESSES -->
 <section class="locations" id="locations">
-  <div class="loc">
-    <span class="loc-num" aria-hidden="true">01</span>
-    <p class="section-tag">Etterbeek</p>
-    <h3 class="loc-name">Avenue des<br/>Casernes</h3>
-    <p class="loc-addr">61, Avenue des Casernes<br/>1040 Etterbeek, Bruxelles</p>
-    <div class="hours-table">
-      <span class="hours-day">Lun – Sam</span><span class="hours-val">07h00 – 18h00</span>
-      <span class="hours-day">Dimanche</span><span class="hours-val">07h00 – 17h00</span>
-    </div>
-    <span class="loc-chip">Atelier principal</span>
-  </div>
-  <div class="loc">
-    <span class="loc-num" aria-hidden="true">02</span>
-    <p class="section-tag">Uccle</p>
-    <h3 class="loc-name">Chaussée de<br/>Waterloo</h3>
-    <p class="loc-addr">887, Chaussée de Waterloo<br/>1180 Uccle, Bruxelles</p>
-    <div class="hours-table">
-      <span class="hours-day">Lun – Sam</span><span class="hours-val">07h00 – 18h00</span>
-      <span class="hours-day">Dimanche</span><span class="hours-val">07h00 – 17h00</span>
-    </div>
-    <span class="loc-chip">Point de vente</span>
-  </div>
+  <div id="locations-grid" style="display:contents"></div>
 </section>
 
+<!-- COMMANDE -->
 <section class="order" id="commande">
   <div class="order-left">
     <p class="section-tag">Commande</p>
     <h2>Réservez<br/>votre pain.</h2>
     <p>Commandez à l'avance pour être sûr de trouver votre pain préféré. Chaque fournée est préparée avec soin, en quantités limitées.</p>
-    <a href="/cdn-cgi/l/email-protection#f1b9949d9d9eb19c90989f82df9383848282949d82" class="btn btn-white" style="width:fit-content;position:relative;z-index:1">Écrire par email</a>
+    <a href="#" id="order-email-btn" class="btn btn-white" style="width:fit-content;position:relative;z-index:1">Écrire par email</a>
   </div>
   <div class="order-right">
     <form class="order-form" onsubmit="handleOrder(event)">
@@ -531,26 +360,27 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
         <input type="tel" placeholder="Téléphone"/>
       </div>
       <input type="email" placeholder="Email" required/>
-      <select><option value="" disabled selected>Choisir une adresse</option><option>Etterbeek — Av. des Casernes</option><option>Uccle — Chée de Waterloo</option></select>
+      <select id="order-select"><option value="" disabled selected>Choisir une adresse</option></select>
       <textarea placeholder="Votre commande (ex: 1 pain blanc, 2 cinnamon rolls…)"></textarea>
       <button type="submit" class="btn-submit">Envoyer la commande →</button>
     </form>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-col">
     <h3>Nous écrire</h3>
-    <a href="/cdn-cgi/l/email-protection#0f476a6363604f626e66617c216d7d7a7c7c6a637c"><span class="__cf_email__" data-cfemail="8cc4e9e0e0e3cce1ede5e2ffa2eefef9ffffe9e0ff">[email&#160;protected]</span></a>
-    <a href="tel:+3223771416">+32 2 377 14 16</a>
+    <a href="#" id="contact-email"></a>
+    <a href="#" id="contact-tel"></a>
     <p style="margin-top:0.75rem">Questions, commandes spéciales, collaborations.</p>
   </div>
   <div class="contact-col">
     <h3>Suivez-nous</h3>
     <p>Fournées du jour, créations de saison et news de la boutique.</p>
     <div class="social-row">
-      <a href="https://www.instagram.com/mainsbxl/" target="_blank" class="social-btn">Instagram</a>
-      <a href="https://www.facebook.com/people/mainsbxl/100090492083020/" target="_blank" class="social-btn">Facebook</a>
+      <a href="#" id="contact-instagram" target="_blank" class="social-btn">Instagram</a>
+      <a href="#" id="contact-facebook" target="_blank" class="social-btn">Facebook</a>
     </div>
   </div>
   <div class="contact-col">
@@ -560,18 +390,118 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <!--
-    LOGO FOOTER : même principe — remplace LOGO_ICI.png par ton fichier
-    Le filtre CSS le rend visible sur fond sombre
-  -->
   <img src="logo.png" alt="mains" class="footer-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
   <span class="footer-logo-text">mains</span>
   <p>© 2025 Mains Sourdough Bakery · Bruxelles</p>
   <p>Uccle · Etterbeek · 7j/7</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// ── CHARGER CONTENU.JSON ET REMPLIR LE SITE ──
+async function init() {
+  try {
+    const res = await fetch('contenu.json');
+    const d = await res.json();
+
+    // HERO
+    document.getElementById('hero-tagline').textContent = d.hero.tagline;
+    document.getElementById('hero-title').innerHTML =
+      `${d.hero.titre_ligne1}<br/><span class="accent">${d.hero.titre_accent}</span><br/>${d.hero.titre_ligne3}`;
+    document.getElementById('hero-desc').textContent = d.hero.description;
+
+    // Horaires hero
+    document.getElementById('hero-hours').innerHTML = `
+      <div><span class="hero-hour-label">${d.horaires.semaine_label}</span><span class="hero-hour-val">${d.horaires.semaine_heures}</span></div>
+      <div><span class="hero-hour-label">${d.horaires.dimanche_label}</span><span class="hero-hour-val">${d.horaires.dimanche_heures}</span></div>
+    `;
+
+    // Adresses hero card
+    document.getElementById('hero-locs').innerHTML = d.adresses.map(a => `
+      <div class="hero-loc-item">
+        <div class="hero-loc-dot"></div>
+        <div><div class="hero-loc-name">${a.ville}</div><div class="hero-loc-detail">${a.adresse_complete}</div></div>
+      </div>
+    `).join('');
+
+    // CAROUSEL
+    const track = document.getElementById('carousel-track');
+    const slides = [...d.photos.carousel, ...d.photos.carousel].map(f =>
+      `<div class="carousel-slide"><img src="${f}" alt="Mains boulangerie"/></div>`
+    ).join('');
+    track.innerHTML = slides;
+
+    // ABOUT
+    document.getElementById('about-titre').textContent = d.about.titre;
+    document.getElementById('about-texte1').textContent = d.about.texte1;
+    document.getElementById('about-texte2').textContent = d.about.texte2;
+    document.getElementById('about-citation').textContent = d.about.citation;
+
+    // MENU
+    document.getElementById('menu-grid').innerHTML = d.menu.categories.map(cat => `
+      <div class="menu-col">
+        <div class="menu-col-head">
+          <h3 class="menu-col-title">${cat.titre}</h3>
+          <p class="menu-col-sub">${cat.sous_titre}</p>
+        </div>
+        <ul class="menu-items">
+          ${cat.items.map(item => `
+            <li class="menu-item">
+              <div>
+                <div class="menu-item-name">${item.nom}</div>
+                <div class="menu-item-desc">${item.desc}</div>
+              </div>
+              <span class="menu-item-price">${item.prix} €</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+    `).join('');
+
+    // HORAIRES
+    document.getElementById('hours-semaine-label').textContent = d.horaires.semaine_label;
+    document.getElementById('hours-semaine-heures').textContent = d.horaires.semaine_heures;
+    document.getElementById('hours-dimanche-label').textContent = d.horaires.dimanche_label;
+    document.getElementById('hours-dimanche-heures').textContent = d.horaires.dimanche_heures;
+
+    // ADRESSES
+    document.getElementById('locations-grid').innerHTML = d.adresses.map((a, i) => `
+      <div class="loc">
+        <span class="loc-num" aria-hidden="true">0${i+1}</span>
+        <p class="section-tag">${a.ville}</p>
+        <h3 class="loc-name">${a.rue}</h3>
+        <p class="loc-addr">${a.adresse_complete}<br/>${a.code_postal}</p>
+        <div class="hours-table">
+          <span class="hours-day">Lun – Sam</span><span class="hours-val">${a.heures_semaine}</span>
+          <span class="hours-day">Dimanche</span><span class="hours-val">${a.heures_dimanche}</span>
+        </div>
+        <span class="loc-chip">${a.type}</span>
+      </div>
+    `).join('');
+
+    // COMMANDE - select adresses
+    const sel = document.getElementById('order-select');
+    d.adresses.forEach(a => {
+      const opt = document.createElement('option');
+      opt.textContent = `${a.ville} — ${a.adresse_complete}`;
+      sel.appendChild(opt);
+    });
+
+    // CONTACT
+    document.getElementById('contact-email').textContent = d.contact.email;
+    document.getElementById('contact-email').href = `mailto:${d.contact.email}`;
+    document.getElementById('contact-tel').textContent = d.contact.telephone;
+    document.getElementById('contact-tel').href = `tel:${d.contact.telephone}`;
+    document.getElementById('contact-instagram').href = d.contact.instagram;
+    document.getElementById('contact-facebook').href = d.contact.facebook;
+    document.getElementById('order-email-btn').href = `mailto:${d.contact.email}`;
+
+  } catch(e) {
+    console.error('Erreur chargement contenu.json', e);
+  }
+}
+
 function handleOrder(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.btn-submit');
@@ -586,4 +516,13 @@ const io = new IntersectionObserver(entries => {
   entries.forEach(el => { if (el.isIntersecting) { el.target.style.opacity='1'; el.target.style.transform='translateY(0)'; io.unobserve(el.target); } });
 }, { threshold: 0.07 });
 
-document.querySelectorAll('.menu-col,.loc,.contact-col,.about-left,.about-right,.ord
+document.querySelectorAll('.menu-col,.loc,.contact-col,.about-left,.about-right,.order-left,.order-right').forEach((el,i) => {
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition=`opacity 0.65s cubic-bezier(0.22,1,0.36,1) ${i*0.06}s, transform 0.65s cubic-bezier(0.22,1,0.36,1) ${i*0.06}s`;
+  io.observe(el);
+});
+
+init();
+</script>
+</body>
+</html>
