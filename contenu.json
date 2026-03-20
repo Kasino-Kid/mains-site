@@ -138,5 +138,16 @@
       "photo6.jpg",
       "photo7.jpg"
     ]
-  }
+  },
+  "ticker": [
+    "Levain naturel",
+    "Farines anciennes",
+    "Cinnamon Rolls",
+    "Café de spécialité",
+    "Babka",
+    "Croissants",
+    "Sourdough Goods",
+    "Too Good To Go",
+    "Danish"
+  ]
 }

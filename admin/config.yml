@@ -85,3 +85,7 @@ collections:
                 name: "carousel"
                 widget: "list"
                 field: {label: "Photo", name: "photo", widget: "image"}
+          - label: "Ticker (mots défilants)"
+            name: "ticker"
+            widget: "list"
+            field: {label: "Mot", name: "mot", widget: "string"}
