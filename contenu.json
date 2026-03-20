@@ -1,0 +1,86 @@
+{
+  "hero": {
+    "tagline": "Boulangerie au levain · Bruxelles",
+    "titre_ligne1": "Fait à la",
+    "titre_accent": "main,",
+    "titre_ligne3": "avec soin.",
+    "description": "Pains au levain naturel, viennoiseries et café de spécialité. Farines anciennes, ingrédients de premier choix, sans additifs."
+  },
+  "horaires": {
+    "semaine_label": "Lun – Sam",
+    "semaine_heures": "07–18",
+    "dimanche_label": "Dimanche",
+    "dimanche_heures": "07–17"
+  },
+  "about": {
+    "titre": "Une boulangerie née de passion.",
+    "texte1": "Senina Cojocari, originaire de Moldavie, pose ses valises à Bruxelles en 2020. D'abord torréfactrice, elle se forme à la boulangerie en autodidacte, entre innombrables essais et voyages à Londres et en Scandinavie.",
+    "texte2": "En 2022, elle ouvre Mains à Uccle — 100% levain naturel, farines sans additifs, ingrédients de premier choix. Depuis 2025, l'atelier principal est à Etterbeek.",
+    "citation": "Du pain honnête, fait avec des ingrédients vrais."
+  },
+  "menu": {
+    "categories": [
+      {
+        "titre": "Viennoiseries",
+        "sous_titre": "Au levain naturel",
+        "items": [
+          { "nom": "Cinnamon Roll", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Croissant", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Danish", "desc": "Garniture du moment", "prix": "—" },
+          { "nom": "Babka", "desc": "Option vegan disponible", "prix": "—" }
+        ]
+      },
+      {
+        "titre": "Pains",
+        "sous_titre": "Farines anciennes",
+        "items": [
+          { "nom": "Pain blanc au levain", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Pain miso & sésame", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Pain de seigle", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Sélection du moment", "desc": "Selon arrivage", "prix": "—" }
+        ]
+      },
+      {
+        "titre": "Café & Boissons",
+        "sous_titre": "De spécialité",
+        "items": [
+          { "nom": "Espresso", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Flat White", "desc": "À renseigner", "prix": "—" },
+          { "nom": "Cappuccino", "desc": "Lait d'avoine disponible", "prix": "—" },
+          { "nom": "Boisson du moment", "desc": "À renseigner", "prix": "—" }
+        ]
+      }
+    ]
+  },
+  "adresses": [
+    {
+      "ville": "Etterbeek",
+      "rue": "Avenue des Casernes",
+      "adresse_complete": "61, Avenue des Casernes",
+      "code_postal": "1040 Etterbeek, Bruxelles",
+      "heures_semaine": "07h00 – 18h00",
+      "heures_dimanche": "07h00 – 17h00",
+      "type": "Atelier principal"
+    },
+    {
+      "ville": "Uccle",
+      "rue": "Chaussée de Waterloo",
+      "adresse_complete": "887, Chaussée de Waterloo",
+      "code_postal": "1180 Uccle, Bruxelles",
+      "heures_semaine": "07h00 – 18h00",
+      "heures_dimanche": "07h00 – 17h00",
+      "type": "Point de vente"
+    }
+  ],
+  "contact": {
+    "email": "Hello@mains.brussels",
+    "telephone": "+32 2 377 14 16",
+    "instagram": "https://www.instagram.com/mainsbxl/",
+    "facebook": "https://www.facebook.com/people/mainsbxl/100090492083020/"
+  },
+  "photos": {
+    "hero": "hero.jpg",
+    "interieur": "interieur.jpg",
+    "carousel": ["photo1.jpg","photo2.jpg","photo3.jpg","photo4.jpg","photo5.jpg","photo6.jpg","photo7.jpg"]
+  }
+}
