@@ -150,5 +150,14 @@
     "Sourdough Goods",
     "Too Good To Go",
     "Danish"
-  ]
+  ],
+  "couleurs": {
+    "fond_principal": "#FFFFFF",
+    "fond_secondaire": "#E8D5B0",
+    "fond_sombre": "#1A1208",
+    "accent": "#8B4513",
+    "accent_fonce": "#6B3410",
+    "texte_principal": "#1A1208",
+    "texte_muted": "#7A6545"
+  }
 }

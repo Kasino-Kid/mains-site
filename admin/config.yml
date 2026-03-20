@@ -90,3 +90,14 @@ collections:
             name: "ticker"
             widget: "list"
             field: {label: "Mot", name: "mot", widget: "string"}
+          - label: "Couleurs"
+            name: "couleurs"
+            widget: "object"
+            fields:
+              - {label: "Fond principal", name: "fond_principal", widget: "color"}
+              - {label: "Fond secondaire (kraft)", name: "fond_secondaire", widget: "color"}
+              - {label: "Fond sombre (noir)", name: "fond_sombre", widget: "color"}
+              - {label: "Couleur accent", name: "accent", widget: "color"}
+              - {label: "Couleur accent foncé", name: "accent_fonce", widget: "color"}
+              - {label: "Texte principal", name: "texte_principal", widget: "color"}
+              - {label: "Texte secondaire", name: "texte_muted", widget: "color"}
