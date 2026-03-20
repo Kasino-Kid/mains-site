@@ -366,12 +366,12 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
     <form class="order-form" name="commande" method="POST" data-netlify="true" onsubmit="handleOrder(event)">
       <input type="hidden" name="form-name" value="commande"/>
       <div class="order-form-row">
-        <input type="text" placeholder="Votre prénom" required/>
-        <input type="tel" placeholder="Téléphone"/>
+        <input type="text" name="prenom" placeholder="Votre prénom" required/>
+        <input type="tel" name="telephone" placeholder="Téléphone"/>
       </div>
-      <input type="email" placeholder="Email" required/>
-      <select id="order-select"><option value="" disabled selected>Choisir une adresse</option></select>
-      <textarea placeholder="Votre commande (ex: 1 pain blanc, 2 cinnamon rolls…)"></textarea>
+      <input type="email" name="email" placeholder="Email" required/>
+      <select id="order-select" name="adresse"><option value="" disabled selected>Choisir une adresse</option></select>
+      <textarea name="commande" placeholder="Votre commande (ex: 1 pain blanc, 2 cinnamon rolls…)"></textarea>
       <button type="submit" class="btn-submit">Envoyer la commande →</button>
     </form>
   </div>
