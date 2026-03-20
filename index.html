@@ -225,6 +225,15 @@ footer p { font-size: 0.7rem; font-weight: 600; color: rgba(232,213,176,0.4); le
 </head>
 <body>
 
+<!-- Formulaire caché pour Netlify Forms -->
+<form name="commande" data-netlify="true" hidden>
+  <input name="prenom"/>
+  <input name="telephone"/>
+  <input name="email"/>
+  <input name="adresse"/>
+  <textarea name="commande"></textarea>
+</form>
+
 <nav>
   <a href="#" class="nav-logo">
     <img src="logo.png" alt="mains boulangerie" class="nav-logo-img" onerror="this.classList.add('hidden')"/>
